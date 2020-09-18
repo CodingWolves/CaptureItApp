@@ -1,3 +1,6 @@
+.idea
+
+
 # Logs
 logs
 *.log
@@ -102,3 +105,9 @@ dist
 
 # TernJS port file
 .tern-port
+.idea/.gitignore
+.idea/CaptureItApp.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
