@@ -1,5 +1,6 @@
 {
-  "name": "take-pic-app",
+  "name": "com.codingwolves.captureitapp",
+  "displayName": "CaptureItApp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +15,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": ".\\scripts\\copy_build_to_www.sh",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -31,5 +33,27 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "CaptureItApp description",
+  "main": "index.js",
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "CodingWolves",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "cordova-android": "^9.0.0",
+    "cordova-browser": "^6.0.0",
+    "cordova-plugin-whitelist": "^1.3.4"
+  },
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android",
+      "browser"
+    ]
+  },
+  "homepage": "./"
 }
