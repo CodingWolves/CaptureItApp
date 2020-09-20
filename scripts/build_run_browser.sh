@@ -7,8 +7,8 @@ echo "up directory"
 fi
 
 npm run build
-platP=$PWD/platforms/android
+platP=$PWD/platforms/browser
 if [ ! -d "$platP" ]; then
-	cordova platform add android
+	cordova platform add browser
 fi
-cordova run android
+cordova run browser
