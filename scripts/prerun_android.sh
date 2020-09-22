@@ -9,10 +9,10 @@ fi
 p=$PWD/www/index.html
 if [ ! -f "$p" ]; then 
 	echo "build does not exist, run 'npm run build' to make a build in project directory"
+	npm run build
 else
-	platP=$PWD/platforms/browser
+	platP=$PWD/platforms/android
 	if [ ! -d "$platP" ]; then
-		cordova platform add browser
+		cordova platform add android
 	fi
-	cordova run browser
 fi
