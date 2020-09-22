@@ -1,0 +1,19 @@
+{
+  "default_lang": "en",
+  "language": {
+    "en": {
+      "page_header": "Take A Picture",
+      "camera": "Camera",
+      "gallery": "Gallery",
+      "picture": "Picture",
+      "select_picture_not": "Where do you want to take the picture from?"
+		},
+		"he": {
+      "page_header": "קח תמונה",
+      "camera": "מצלמה",
+      "gallery": "גלרייה",
+      "picture": "תמונה",
+      "select_picture_not": "מאיפה בא לך למשוך את התמונה?"
+    }
+  }
+}

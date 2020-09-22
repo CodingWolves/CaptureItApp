@@ -12,10 +12,10 @@ const takePhoto = (e) => {
     phoneConfirmCallback(2); // for now no confirmation for gallery
   } else {
     navigator.notification.confirm(
-      "Where do you want to take the picture from?",
+      navigator.app_lang.select_picture_not,
       phoneConfirmCallback,
-      "Picture",
-      ["Camera", "Gallery"] // the order is important for the callback function, up to 3 options on android
+      navigator.app_lang.picture,
+      [navigator.app_lang.camera, navigator.app_lang.gallery] // the order is important for the callback function, up to 3 options on android
     );
   }
 };
