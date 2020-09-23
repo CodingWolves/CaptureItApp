@@ -6,8 +6,8 @@ import {HashRouter, Route, Switch} from 'react-router-dom'
 import { Dashboard } from './components/Dashboard'
 import tc from "./tconfig.json"
 
-navigator.app_lang = tc.default_lang;
 if (navigator.language && tc.language[navigator.language]){
+navigator.app_lang = tc.language[tc.default_lang];
   navigator.app_lang = tc.language[navigator.language];
 }
 
