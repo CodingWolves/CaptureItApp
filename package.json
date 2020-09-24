@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "npm run bb",
+    "react": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": ".\\scripts\\copy_build_to_www.sh",
     "android": ".\\scripts\\prerun_android.sh && cordova run android",
