@@ -95,7 +95,7 @@ export const Dashboard = () => {
         <br />
 
         <button className="button" onClick={upload}>
-          Upload picture
+          {navigator.app_lang.upload_picture}
         </button>
         <Result percentage={percentage}></Result>
       </div>

@@ -6,14 +6,18 @@
       "camera": "Camera",
       "gallery": "Gallery",
       "picture": "Picture",
-      "select_picture_not": "Where do you want to take the picture from?"
-		},
-		"he": {
+      "upload_picture": "Upload Picture",
+      "select_picture_not": "Where do you want to take the picture from?",
+      "no_photo": "please select a picture before upload"
+    },
+    "he": {
       "page_header": "קח תמונה",
       "camera": "מצלמה",
       "gallery": "גלרייה",
       "picture": "תמונה",
-      "select_picture_not": "מאיפה בא לך למשוך את התמונה?"
+      "upload_picture": "שלח תמונה",
+      "select_picture_not": "מאיפה בא לך למשוך את התמונה?",
+      "no_photo": "אנא בחר תמונה לפני שליחה"
     }
   },
   "server_url": "http://127.0.0.1:5000/"
