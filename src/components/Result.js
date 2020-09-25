@@ -10,6 +10,7 @@ const Result = (props) => {
   if (props.style) {
     resultStyle = props.style;
   }
+
   return (
     <div style={resultStyle}>
       <div className={styles.progressBar}>
