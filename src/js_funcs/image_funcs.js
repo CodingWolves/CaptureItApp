@@ -18,10 +18,11 @@ export function convertImgToBase64(url, callback, outputFormat) {
   img.src = url;
 }
 
-export function uploadToServer(imageBase64Data) {
+export function uploadToServer(imageBase64Data, successCallback) {
   var formData = new FormData();
   formData.append("image", imageBase64Data);
   axios.post(tc.server_url, formData).then((res) => {
     console.log(res);
+    successCallback(res);
   });
 }

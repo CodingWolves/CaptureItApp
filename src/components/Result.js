@@ -31,7 +31,7 @@ export default class Result extends React.Component {
   }
 
   advState() {
-    if (this.state.animation.count < 10) {
+    if (this.state.animation.count < 6) {
       this.setState((state) => {
         var animation = state.animation;
         let randPer = Math.round(Math.random() * 100);
@@ -58,12 +58,17 @@ export default class Result extends React.Component {
     let backColor = "";
     if (this.state.animation.ended === true) {
       if (this.props.percentage !== this.state.final_percentage) {
-        setTimeout(this.resetState, 10);
+        if (this.props.percentage != undefined) {
+          setTimeout(this.resetState, 10);
+        }
       } else {
         backColor = "green";
       }
     }
-    if (this.state.animation.timeout === false) {
+    if (
+      this.props.percentage != undefined &&
+      this.state.animation.timeout === false
+    ) {
       var animation = this.state.animation;
       animation.timeout = true;
       setTimeout(() => {

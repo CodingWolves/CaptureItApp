@@ -1,9 +1,10 @@
-import React from "react";
-import '../styles/styles.scss'
+import React, { useState } from "react";
+import "../styles/styles.scss";
 import { Link } from "react-router-dom";
 
 import { Header } from "./Header";
-import {convertImgToBase64, uploadToServer} from "../js_funcs/image_funcs"
+import { convertImgToBase64, uploadToServer } from "../js_funcs/image_funcs";
+import Result from "./Result";
 
 var photoType;
 
@@ -14,7 +15,7 @@ const takePhoto = (e) => {
   if (window.cordova.platformId === "browser") {
     // TODO special confirmation, notification not working good on browser
     phoneConfirmCallback(2); // for now no confirmation for gallery
-    photoType="base64";
+    photoType = "base64";
   } else {
     navigator.notification.confirm(
       navigator.app_lang.select_picture_not,
@@ -22,7 +23,7 @@ const takePhoto = (e) => {
       navigator.app_lang.picture,
       [navigator.app_lang.camera, navigator.app_lang.gallery] // the order is important for the callback function, up to 3 options on android
     );
-    photoType="path";
+    photoType = "path";
   }
 };
 
@@ -41,7 +42,7 @@ function phoneConfirmCallback(selected_index) {
   }
   navigator.camera.cleanup(); // removes the last image taken on ios
   navigator.camera.getPicture(pictureSuccess, pictureError, cameraOptions);
-};
+}
 
 function pictureSuccess(picture_path) {
   if (window.cordova.platformId === "browser") {
@@ -53,39 +54,47 @@ function pictureSuccess(picture_path) {
   }
 }
 
-function upload(){
-  var dat = document.getElementById("takePhoto").src;
-  if (photoType === "path"){
-    
-    convertImgToBase64(dat, (data)=>uploadToServer(data));
-  }
-  else{
-    uploadToServer(dat);
-  }
-}
-
 function pictureError(msg) {
   alert(msg);
 }
 
-export const Dashboard = () => (
-  <div>
-    <Header />
-    
-    <div className="dashboard">
-      <button className="button" onClick={ takePhoto }>
-        <img
-          className="image"
-          id="takePhoto"
-          src={require("../images/add-photo.png")}
-        />
-      </button>
+export const Dashboard = () => {
+  const [percentage, setPercentage] = useState(null);
+  function upload() {
+    var photoSrc = document.getElementById("takePhoto").src;
+    if (photoType === "path") {
+      convertImgToBase64(photoSrc, (data) =>
+        uploadToServer(data, (receivedPercentage) =>
+          setPercentage(receivedPercentage.data)
+        )
+      );
+    } else {
+      // base64
+      uploadToServer(photoSrc, (receivedPercentage) =>
+        setPercentage(receivedPercentage.data)
+      );
+    }
+  }
+  return (
+    <div>
+      <Header />
 
-      <br />
+      <div className="dashboard">
+        <button className="button" onClick={takePhoto}>
+          <img
+            className="image"
+            id="takePhoto"
+            src={require("../images/add-photo.png")}
+          />
+        </button>
 
-      <button className="button" onClick={ upload }>
-        Upload picture
-      </button>
+        <br />
+
+        <button className="button" onClick={upload}>
+          Upload picture
+        </button>
+        <Result percentage={percentage}></Result>
+      </div>
     </div>
-  </div>
-);
+  );
+};
