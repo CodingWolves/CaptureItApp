@@ -3,6 +3,9 @@ import '../styles/styles.scss'
 import { Link } from "react-router-dom";
 
 import { Header } from "./Header";
+import {convertImgToBase64, uploadToServer} from "../js_funcs/image_funcs"
+
+var photoType;
 
 const takePhoto = (e) => {
   console.log(navigator);
@@ -11,6 +14,7 @@ const takePhoto = (e) => {
   if (window.cordova.platformId === "browser") {
     // TODO special confirmation, notification not working good on browser
     phoneConfirmCallback(2); // for now no confirmation for gallery
+    photoType="base64";
   } else {
     navigator.notification.confirm(
       navigator.app_lang.select_picture_not,
@@ -18,6 +22,7 @@ const takePhoto = (e) => {
       navigator.app_lang.picture,
       [navigator.app_lang.camera, navigator.app_lang.gallery] // the order is important for the callback function, up to 3 options on android
     );
+    photoType="path";
   }
 };
 
@@ -45,6 +50,17 @@ function pictureSuccess(picture_path) {
       "data:image/png;base64, " + picture_path;
   } else {
     document.getElementById("takePhoto").src = picture_path;
+  }
+}
+
+function upload(){
+  var dat = document.getElementById("takePhoto").src;
+  if (photoType === "path"){
+    
+    convertImgToBase64(dat, (data)=>uploadToServer(data));
+  }
+  else{
+    uploadToServer(dat);
   }
 }
 
