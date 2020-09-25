@@ -1,0 +1,30 @@
+// Override Sass min()
+@function min($numbers...) {
+  @return m#{i}n(#{$numbers});
+}
+
+$transition_time: 0.6s;
+$prog_height: 20vh;
+$prog-radius: min(2vw, 2vh);
+$prog-font-size: calc(0.7 * #{$prog_height});
+
+.progressBar {
+  width: 100%;
+  height: $prog_height;
+  border: 0.1rem solid black;
+  border-radius: $prog-radius;
+  background-color: lightgray;
+  text-align: center;
+  div {
+    height: 100%;
+    border-radius: $prog-radius;
+    width: 0%;
+    transition: width $transition_time ease-in-out;
+    background-color: blue;
+  }
+  span {
+    font-size: $prog-font-size;
+    position: relative;
+    bottom: 100%;
+  }
+}
