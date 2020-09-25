@@ -1,11 +1,7 @@
 from flask import Flask
-
-
-def create_app():
-    app = Flask(__name__)
-    return app
+from app.appServer import getApp
 
 
 if __name__ == '__main__':
-    app = create_app()
-    app.run(debug=True)
+    app1 = getApp()
+    app1.run(debug=True)
