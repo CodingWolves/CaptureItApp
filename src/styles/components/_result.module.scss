@@ -16,7 +16,7 @@ $prog-font-size: 4rem;
   height: $prog_height;
   border: 0.1rem solid black;
   border-radius: $prog-radius;
-  background-color: #696969;
+  background-color: lightgray;
   text-align: center;
   margin: auto;
 
@@ -25,7 +25,7 @@ $prog-font-size: 4rem;
     border-radius: $prog-radius;
     width: 0%;
     transition: width $transition_time ease-in-out;
-    background-color: #FFD700;
+    background-color: #DAA520;
   }
   span {
     font-size: $prog-font-size;
