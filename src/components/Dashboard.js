@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/styles.scss'
 import { Link } from "react-router-dom";
 
 import { Header } from "./Header";
@@ -54,13 +55,21 @@ function pictureError(msg) {
 export const Dashboard = () => (
   <div>
     <Header />
+    
+    <div className="dashboard">
+      <button className="button" onClick={ takePhoto }>
+        <img
+          className="image"
+          id="takePhoto"
+          src={require("../images/add-photo.png")}
+        />
+      </button>
 
-    <button onClick={takePhoto} style={{ marginLeft: "5rem" }}>
-      <img
-        id="takePhoto"
-        className="img-responsive"
-        src={require("../images/add-photo.png")}
-      />
-    </button>
+      <br />
+
+      <button className="button" onClick={ upload }>
+        Upload picture
+      </button>
+    </div>
   </div>
 );
