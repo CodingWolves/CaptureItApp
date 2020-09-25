@@ -62,6 +62,10 @@ export const Dashboard = () => {
   const [percentage, setPercentage] = useState(null);
   function upload() {
     var photoSrc = document.getElementById("takePhoto").src;
+    if (photoSrc == require("../images/add-photo.png")){
+      alert(navigator.app_lang.no_photo)
+      return;
+    }
     if (photoType === "path") {
       convertImgToBase64(photoSrc, (data) =>
         uploadToServer(data, (receivedPercentage) =>
