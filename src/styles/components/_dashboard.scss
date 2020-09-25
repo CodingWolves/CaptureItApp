@@ -9,7 +9,6 @@
 }
 
 .button {
-    font-family: "../fonts/NeueMontreal-Light.otf";
     width: 40vw;
     min-width: 250px;
     max-width: 400px;
@@ -21,6 +20,6 @@
 }
 
 .image {
-    max-width: 350px;
-    max-height: 400px;
+    max-width: 100%;
+    max-height: 100%;
 }
