@@ -21,8 +21,9 @@ def add_pic():
             imageData = base64.decodebytes(imageDataBytes)
             with open("imageToSave.png", "wb") as imageFile:
                 imageFile.write(imageData)
-            res = "image received successfully"
-            return res, 202
+            percentage = random.randint(0, 100)
+            print(f"response percentage = {percentage}")
+            return str(percentage), 200
     res = "must contain form-data with 'image' variable inside"
     return res, 400
 
