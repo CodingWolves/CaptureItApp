@@ -1,3 +1,13 @@
+# jetBrains
+.idea
+
+/build
+
+# Cordova
+/plugins/
+/platforms/
+/www/*
+
 # Logs
 logs
 *.log
