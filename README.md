@@ -1,5 +1,10 @@
 # TakePicApp
 
+for changing the app for your needs you can change the values on tconfig.json
+also to add logo please name your picture logo.png and replace it in src/images/
+to change the app name change the name field in config.xml file
+
+# .................................................. #
 First you need to install all the dependencies of the project with command `npm install`.
 
 **Browser** - To run on browser, run command `npm start`.

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../styles/styles.scss";
-import { Link } from "react-router-dom";
 
 import { Header } from "./Header";
 import { convertImgToBase64, uploadToServer } from "../js_funcs/image_funcs";
